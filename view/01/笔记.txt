@@ -1,0 +1,186 @@
+01. 别抱怨----第一讲，特别深刻
+
+自定义Text
+蓝湖设计存在一个
+就是使用staticlayout就好了
+但是很多人应该不知道
+
+
+02.
+
+
+ 玩的都是套路
+
+
+
+ 03.
+
+ 朱凯曾经讲过一个文字和imageView的
+ 那个和朱凯的有什么区别？？
+
+
+
+可以按照服用的模式来操作
+你在那个地方算一下高度，然后改用atMost调用
+然后再处理一下滑动冲突，就会解决滑动冲突的问题了
+----主要是滑动冲突，让界面滑动流畅
+如果当前的listView的顶部没有获取到屏幕可以到达的顶部，也是不允许滑动的，如果到达了就可以滑动了，当底部出现的时候
+也不允许滑动了
+
+在向下滑动的时候也可以这么玩，最大的高度就是当前控件可以获取大高度
+这样是否会好一点
+
+那按照这个道理能否优化一下rv呢？？？
+
+
+
+其实我们更多的是使用listView和rv去做一个多布局
+
+https://mp.weixin.qq.com/s/oCl4BQ8uB9ZDSOEKESM7hA
+这个是百度的方案
+https://github.com/jingmeng/ELinkageScroll
+
+
+
+
+网上那个重写方案也不完美
+因为没考虑其他情况
+
+
+2^0  这个占用1位
+2^1  这个占用2位
+2^30 这个占用31位
+我们最多占用30位
+所以最大的30位，是在30位的基础上-1
+也就是:2^30 -1 
+
+interger.mxavalue 是多少？？
+
+    /**
+     * A constant holding the maximum value an {@code int} can
+     * have, 2<sup>31</sup>-1.
+     */
+    @Native public static final int   MAX_VALUE = 0x7fffffff;
+
+    所以我觉得右移一位就足够了，没有必要两位
+
+
+
+ me.fenfei.waiting.s05.listView.ScollListSizeActivity
+
+ @IntRange(from = 0, to = (1 << MeasureSpec.MODE_SHIFT) - 1) 
+
+
+
+2^30 -1 
+(2^31 -1 )>> 1
+这两个比较
+
+
+git config --global user.email "1774329934@qq.com"
+git config --global user.name "jingmeng"
+
+
+
+
+开始胡说了
+maxvalue什么时间是一个32位的数值了
+是一个最大是2^31位的数值-1 还有31位
+
+
+倒是轻微分析了那个at_most的计算
+
+
+
+04.
+反复的使用才是根本
+
+05.
+
+onTouch网上博客千千万，看完了就忘记
+
+https://www.jianshu.com/p/b272528165a2
+
+必须return true才行 字母索引
+
+06.
+
+设计模式：
+
+事件分发使用了责任链？？？？
+
+
+
+会产生手指滑动不灵敏？？？你试试
+ 虽然不会去修改这个东西，但是你看到的似乎没有这个关系吧
+
+这个自义定view你需要看一下
+
+
+07.
+
+
+reference是什么类型，
+reference是资源的意思吗？？
+reference 不是引用的意思吗？？
+
+什么时间用这个
+去官方查查
+
+放在代码里面看看报错吗？？？
+
+系统的是直接调用那个构造参数的方式吗？
+就是单个参数的调用两个参数的，依次增加
+
+如果是的话，那个onFinnishInflate岂不是在 任何情况下都被调用了？？？
+
+最起码TextView 是这么操作的
+那你看看onFinnishInflate的调用时机在明确一下吧
+
+这个是view支持的
+       Drawable background = null;
+       系统自己支持的
+   case com.android.internal.R.styleable.View_background:
+                    background = a.getDrawable(attr);
+
+不知道如何定义的，看看系统的源码
+
+
+这个15是什么？？？
+默认的不是14吗？？？
+ attributes.mTextSize = 15;
+
+ https://juejin.cn/post/6844904015587704840
+
+  <style name="Widget.AppCompat.TextView" parent="Base.Widget.AppCompat.TextView"/>
+
+      <style name="Widget.TextView">
+        <item name="textAppearance">?attr/textAppearanceSmall</item>
+        <item name="textSelectHandleLeft">?attr/textSelectHandleLeft</item>
+        <item name="textSelectHandleRight">?attr/textSelectHandleRight</item>
+        <item name="textSelectHandle">?attr/textSelectHandle</item>
+        <item name="textEditPasteWindowLayout">?attr/textEditPasteWindowLayout</item>
+        <item name="textEditNoPasteWindowLayout">?attr/textEditNoPasteWindowLayout</item>
+        <item name="textEditSidePasteWindowLayout">?attr/textEditSidePasteWindowLayout</item>
+        <item name="textEditSideNoPasteWindowLayout">?attr/textEditSideNoPasteWindowLayout</item>
+        <item name="textEditSuggestionItemLayout">?attr/textEditSuggestionItemLayout</item>
+        <item name="textEditSuggestionContainerLayout">?attr/textEditSuggestionContainerLayout</item>
+        <item name="textEditSuggestionHighlightStyle">?attr/textEditSuggestionHighlightStyle</item>
+        <item name="textCursorDrawable">?attr/textCursorDrawable</item>
+        <item name="breakStrategy">high_quality</item>
+        <item name="hyphenationFrequency">@dimen/config_preferredHyphenationFrequency</item>
+    </style>
+
+
+        <item name="android:textAppearanceSmall">@style/TextAppearance.AppCompat.Small</item>
+
+        从这个地方达到的就是14了，记得之前找过这个代码
+
+
+就是这个
+        Android 修改 TextView 的全局默认颜色.md
+
+
+        me/fenfei/ui/view/text/blog/Android 修改 TextView 的全局默认颜色.md
+
+        再看一下他那个15是dp还是px的推论

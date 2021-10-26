@@ -1,0 +1,89 @@
+
+
+01.
+
+大牛，动不动就会重新写一个hanlder
+
+
+代码原理，需要反复的去了解
+
+
+02.
+
+mTextView.getMeasuredHeight() 为什么拿不到
+
+这个和view的绘制是存在关系
+
+03.
+
+setContentView()源码 ， 换肤的框架讲过
+
+
+setContentView  只是创建DecorView 把我们的布局加载到了DecorView 
+
+为什么要讲解setContentView
+
+我们的onMeasure是和Activity的启动流程相关的
+
+直接介绍启动流程不就够了？？？
+
+
+04
+
+三个打印，三个问题
+
+两个不可以，一个可以
+
+
+attach的时机没说明
+
+少一个说明点
+
+05.
+
+inflate的代码是否测量
+
+
+
+06.
+
+
+windowManagerImpl从Activity的PhoneWindow里面被找到
+
+windowManagerImpl 的实例化地点
+ViewRootImpl 的实例化地点
+
+
+DecorView的外层还有一层布局
+就是ViewRootImpl
+
+这部分和View的关系，你始终没有去看
+
+这个需要看。hongyang大代码中曾经问过事件是最先到谁身上的这个问题
+还专门的写过bolg
+
+WindowManagerClobal 是全局的吗？？
+是单利的吗？？
+里面的mVIews mRoots mParams 都是什么？？？？
+
+
+ViewRootImpl 在实例化的时候第二个参数能用来调节三星的键盘是否显示吗？？
+
+
+
+07.
+
+performTraversals 里面的
+mView是什么？？？
+
+讲到这个地方看到前期那个地方的代码写错了吗？？？
+就是代码没有那么好的健壮性
+
+
+
+那个为什么成功还是没有说明白
+
+不是太明白，一笔带过了
+
+
+
