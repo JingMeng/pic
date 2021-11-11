@@ -99,6 +99,33 @@ hanlderThread
 
 
 
+==============
+2.3的loope源码应该是直接wait实现的，不是底层的操作
+
+ 所以说也不需要那个解密老师的操作
+ 直接和线程关联就满足了
+
+
+这个版本是用了wait
+ http://androidxref.com/2.3.6/xref/frameworks/base/core/java/android/os/Looper.java
+
+ enqueueMessage 的时候notify
+ next的时候wait，就可以解决高占用的问题的
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
 
 
