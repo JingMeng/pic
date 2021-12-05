@@ -1,0 +1,125 @@
+
+1.
+这个四舍五入讲解的是极好的
+并且能够讲解根本，迁移原理
+
+ dp2px和px2dp 为什么都加0.5
+
+
+2. 
+for循环删除
+  另外的思路技巧不错
+  和join的String操作
+
+3.
+
+[12,3,55,6,332,65,-26,1]
+数组除以第一个位置的数据
+
+倒着就是最好的，不需要变量
+
+
+4.
+
+模仿系统的栈
+
+5.
+
+那个读音你之前也是读错的
+
+6.
+即使未捕获的异常，你按照他这个重新捕获一下，也会导致黑屏，你思考一下为什么黑屏
+因为当前的looper已经毁坏了吧！！！
+
+7.
+自定义view还是viewGroup
+就看你这个控件可见还是不可见，不可见的是viewGroup
+
+
+8.
+
+
+提出这么一个问题
+
+onfinish那个是调用xml的时候使用的
+但是我们重写三个构造方法，有些时间是给修改的
+第一个调用，第二个，第二个调用第三个方法
+那就是说new的时候也会调用onfinishInflate吗
+
+
+9.
+
+他这个文本计算，和仍无线的有什么不同？？？？
+
+
+        // 绘制文字
+        paint.setTextSize(Utils.dp2px(100));
+        paint.setStyle(Paint.Style.FILL);
+        paint.setTextAlign(Paint.Align.CENTER);
+//        paint.getTextBounds("abab", 0, "abab".length(), rect);
+        float offset = (fontMetrics.ascent + fontMetrics.descent) / 2;
+        canvas.drawText("abab", getWidth() / 2, getHeight() / 2 - offset, paint);
+
+      一般见到的都是这个，目前使用的不是这种方案
+
+
+https://github.com/JingMeng/HenCoderPlus/blob/master/06-drawing/src/main/java/com/hencoder/plus/view/SportsView.java
+准确的来说应该是两种方案
+
+
+10.
+这个动画做的，做出来了花朵了
+让sportView动起来
+
+11.
+
+dy向下的时候应该是负数
+
+这个地方你需要亲自实践一下
+
+和张涛的比较一下
+
+
+==========
+
+讲解的时候讲解了一个方向，最后两个方向都可以了吗？
+
+10.
+
+反拦截的案例
+
+listVIew上面加banner
+
+
+11.
+拦截的代码和分发的代码可以写的几乎是一样的
+之前也总结过了
+
+
+12..
+
+
+首页的这个滑动冲突你也要试试
+
+13.
+
+
+ViewManmager 需要看一下
+
+14.
+
+
+只有画到布局上才能真真的获取到最终的宽高
+
+其实最终的宽高其实在布局的时候就已经决定了
+
+-------------流式布局
+
+
+15.
+
+
+
+那ViewParent是什么东西
+
+
