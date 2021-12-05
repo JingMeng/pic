@@ -123,3 +123,5 @@ ViewManmager 需要看一下
 那ViewParent是什么东西
 
 
+16.
+那个弹性，需要对别下拉数显，需要对别继承的那个VIew的
